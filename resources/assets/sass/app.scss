@@ -12,3 +12,55 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.admin .navbar {
+  background-color: #9675d8;
+  color: #fff;
+
+  a {
+    color: #fff;
+    &:hover{
+      color: #dbdbdb;
+    }
+  }
+
+  .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+    background-color: #ab84f9;
+    border-color: #ab84f9;
+    color: #fff;
+    &:focus{
+      color: #495057;
+      background-color: #fff;
+      outline: 0;
+      box-shadow: none;
+    }
+  }
+}
+.admin .sidebar {
+  padding: 0;
+  background-color: #ab84f9;
+  color: #fff;
+  min-height: 100vh;
+
+  a.nav-link {
+    color: #fff;
+    padding: 1rem 1.5rem;
+    &:hover, &:focus, &.active{
+      background-color: rgba(1,1,1,.1);
+    }
+    &.active{
+      font-weight: bold;
+      border: 3px solid rgba(1,1,1,.25);
+      border-left: 0;      
+    }
+
+  }
+  .sidebar-heading {
+    padding-bottom: 0.25rem;
+    border-bottom: 3px solid rgba(1,1,1,.25);
+  }
+  
+}
