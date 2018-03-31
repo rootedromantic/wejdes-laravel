@@ -10,6 +10,12 @@ let mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
+/*
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .sass('resources/assets/sass/app.scss', 'public/css'); */
+
+   //Foundation stuff
+   mix.sass('resources/assets/sass/app.scss', 'public/css')
+   .js('resources/assets/js/app.js', 'public/js');
+    mix.copy('vendor/components/jquery/jquery.min.js', 'public/js');
+    mix.copy('vendor/zurb/foundation/dist/js/foundation.min.js', 'public/js');

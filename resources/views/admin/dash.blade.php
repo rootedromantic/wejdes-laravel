@@ -1,28 +1,15 @@
-@extends('layouts.admin')
+@extends('layouts.admin', ['active' => $active])
 
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-3 sidebar admin">
-
-        </div>
+<h1 class="h2">Dashboard</h1>
+<div class="btn-toolbar mb-2 mb-md-0">
+    <div class="btn-group mr-2">
+    <button class="btn btn-sm btn-outline-secondary">Share</button>
+    <button class="btn btn-sm btn-outline-secondary">Export</button>
     </div>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Admin Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in as an <b>Admin</b>!
-                </div>
-            </div>
-        </div>
-    </div>
+    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+    <span data-feather="calendar"></span>
+    This week
+    </button>
 </div>
 @endsection

@@ -23,99 +23,80 @@
 
 <body class="admin">
     <div id="app">
-        <nav class="navbar sticky-top flex-md-nowrap p-0">
-            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>
-            <input class="form-control w-100" type="text" placeholder="Search" aria-label="Search">
-            <ul class="navbar-nav px-3">
-            <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Sign out</a>
-            </li>
-            </ul>
-        </nav>
-
-        <div class="container-fluid">
-            <div class="row">
-            <nav class="col-md-2 d-none d-md-block sidebar">
-                <div class="sidebar-sticky">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <span data-feather="home"></span>
-                            Dashboard <span class="sr-only">(current)</span>
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="user"></span>
-                            Profile
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="file"></span>
-                            Posts
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="shopping-cart"></span>
-                            Products
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="message-circle"></span>
-                            Comments
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <span data-feather="users"></span>
-                            Newsletter
-                        </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <span data-feather="settings"></span>
-                                Settings <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
-                <h1 class="h2">Dashboard</h1>
-                <div class="btn-toolbar mb-2 mb-md-0">
-                    <div class="btn-group mr-2">
-                    <button class="btn btn-sm btn-outline-secondary">Share</button>
-                    <button class="btn btn-sm btn-outline-secondary">Export</button>
-                    </div>
-                    <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                    <span data-feather="calendar"></span>
-                    This week
-                    </button>
-                </div>
-                </div>
-                </div>
-            </main>
+        <div class="top-bar grid-x grid-padding-x">
+            <div class="cell medium-2 sitename">
+                <button data-toggle="sidebar" class="menu-icon hide-for-medium"></button>
+                <a>the WEJDES collective</a>
+            </div>
+            <div class="cell medium-9 navbar-search">
+                <input class="app-dashboard-search" type="search" placeholder="Search">
+            </div>
+            <div class="cell medium-1 sign-out">
+                <a href="{{route('logout')}}">Sign Out</a>
             </div>
         </div>
+        <div class="content grid-x grid-padding-x">
+            
+            <div class="small-12 grid-x">
+            <div id="sidebar" class="cell medium-2 reveal-for-medium">
+
+                <ul class="vertical dropdown menu" data-dropdown-menu>
+                    <li>
+                        <a href="{{route('admin')}}" @if($active == 'dash') class="is-active" @endif>
+                            <i class="fa large fa-home"></i><span class="app-dashboard-sidebar-text">&emsp;Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.profile')}}" @if($active == 'user' || $active == 'user-settings'|| $active == 'user-social') class="is-active" @endif>
+                            <i class="large fa fa-user-circle"></i><span class="app-dashboard-sidebar-text">&emsp;User</span>
+                        </a>
+                        <ul class="vertical menu nested">
+                                <li><a class="nav-link" href="{{ route('admin.profile.settings')}}" @if($active == 'user-settings') class="is-active" @endif> User Settings</a></li>
+                                <li><a class="nav-link" href="{{ route('admin.profile.social')}}" @if($active == 'user-social') class="is-active" @endif> Social Services</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.posts')}}" @if($active == 'posts') class="is-active" @endif>
+                            <i class="large fa fa-file"></i><span class="app-dashboard-sidebar-text">&emsp;Posts</span>
+                        </a>
+                        <ul class="vertical menu nested">
+                                <li><a class="nav-link" href="{{ route('admin.posts.add')}}" @if($active == 'user-settings') class="is-active" @endif><i class="fa fa-plus-circle"></i>&emsp; New Post</a></li>
+                                <li><a class="nav-link" href="{{ route('admin.posts.categories')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-folder-open"></i>&emsp; Categories</a></li>
+                                <li><a class="nav-link" href="{{ route('admin.posts.categories')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-tags"></i>&emsp; Tags</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.comments')}}" @if($active == 'comments') class="is-active" @endif>
+                            <i class="large fa fa-comments"></i><span class="app-dashboard-sidebar-text">&emsp;Comments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.newsletter')}}" @if($active == 'newsletter') class="is-active" @endif>
+                            <i class="large fa fa-users"></i><span class="app-dashboard-sidebar-text">&emsp;Newsletter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.settings')}}" @if($active == 'settings') class="is-active" @endif>
+                            <i class="large fa fa-cog"></i><span class="app-dashboard-sidebar-text">&emsp;Settings</span>
+                        </a>
+                        <ul class="vertical menu nested">
+                                <li><a class="nav-link" href="{{ route('admin.profile.settings')}}" @if($active == 'user-settings') class="is-active" @endif><i class="fa fa-cogs"></i>&emsp;General</a></li>
+                                <li><a class="nav-link" href="{{ route('admin.profile.social')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-bars"></i>&emsp;Menu</a></li>
+                                <li><a class="nav-link" href="{{ route('admin.profile.social')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-user-alt"></i>&emsp;Admins</a>
+                                    <ul class="vertical menu nested">
+                                        <li><a class="nav-link" href="{{ route('admin.profile.social')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-plus-circle"></i>&emsp;New Admin</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="nav-link" href="{{ route('admin.profile.social')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-share-alt"></i>&emsp;Sharing</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <main role="main" class="content-area medium-10 cell">
+                @yield('content')
+            </main>
+        </div>
+        </div>
     </div>
- <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Icons -->
-    <script src="{{ asset('js/feather.min.js') }}"></script>
-    <script>
-      feather.replace()
-    </script>
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-
 </body>
 </html>

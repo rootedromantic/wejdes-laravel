@@ -20,3 +20,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const app = new Vue({
     el: '#app'
 });
+
+$('[data-app-dashboard-toggle-shrink]').on('click', function(e) {
+    e.preventDefault();
+    $(this).parents('.app-dashboard').toggleClass('shrink-medium').toggleClass('shrink-large');
+  });
+
+  
+  

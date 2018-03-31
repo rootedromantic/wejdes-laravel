@@ -23,11 +23,40 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.dash');
+        return view('admin.dash')->with(['active' => 'dash']);
     }
 
     public function posts()
     {
-        return view('admin.posts');
+        return view('admin.posts')->with(['active' => 'posts']);
+    }
+
+    public function profile()
+    {
+        return view('admin.profile')->with(['active' => 'user']);
+    }
+    public function profileSettings()
+    {
+        return view('admin.profileSettings')->with(['active' => 'user-settings']);
+    }
+    public function profileSocial()
+    {
+        return view('admin.profileSocial')->with(['active' => 'user-social']);
+    }
+
+    public function comments()
+    {
+        return view('admin.comments')->with(['active' => 'comments']);
+    }
+
+    public function newsletter()
+    {
+        return view('admin.newsletter')->with(['active' => 'newsletter']);
+    }
+
+    public function settings()
+    {
+        return view('admin.settings')->with(['active' => 'settings']);
     }
 }
+
