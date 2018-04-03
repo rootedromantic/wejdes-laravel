@@ -340,34 +340,38 @@ $admin-top-nav-height: 55px;
      /* +.menu {
         display: none;
       }*/
-      &.is-active {
-        background: darken($admin-top-nav-color, 5%);
-        border: 3px solid darken($admin-top-nav-color, 15%);
-        border-left: none;
-        /*+ .menu {
-          display: block;
-          background: darken($admin-top-nav-color, 10%);
-          border: 3px solid darken($admin-top-nav-color, 15%);
-          border-left: none;
-          border-top: none;
-          margin: 0;
-          li {
-            padding-left: 1rem;
-          }
-        }*/
+      &:after {
+        border-color: transparent transparent transparent #fff;
+      }
+      &:hover {
+        color: #dbdbdb;
+      }
+    }
+
+    &:hover {
+      background: darken($admin-top-nav-color, 20%);
+    }
+    &.current {
+      background: darken($admin-top-nav-color, 5%);
+      border: 3px solid darken($admin-top-nav-color, 15%);
+      border-left: none;
+      > a {
+        &::after,
+        &:hover::after {
+          display: none;
+        }
+        
       }
 
       &:hover {
-        color: #dbdbdb;
-        background: darken($admin-top-nav-color, 20%);
-        /*&:not(.is-active) +.menu, 
-        .menu li:hover {
-          background: darken($admin-top-nav-color, 10%);
-          display: block;
-          position: absolute;
-          right: -1rem;
-          bottom: 0;
-        } */
+        background: darken($admin-top-nav-color, 15%);
+        border-color: darken($admin-top-nav-color, 20%);
+      }
+      .nested {
+        margin-left: 0;
+        li a {
+          padding-left: 3rem;
+        }
       }
     }
 
@@ -376,4 +380,142 @@ $admin-top-nav-height: 55px;
 
 .admin .content-area {
   padding: 3rem;
+}
+
+//Off Canvas
+.fa.large {
+  font-size: rem-calc(24);
+  width: 40px;
+  padding-right: 0.5rem;
+}
+
+.content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.content-area {
+  flex: 1 1 auto;
+  display: flex;
+}
+/*$offcanvas-transition-length
+$offcanvas-transition-timing */
+#sidebar {
+  margin-top: 55px;
+  z-index: 1;
+  height: 100%;
+  overflow: visible;
+  overflow-y: hidden;
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+  #admin-sidebar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -17px; /* Increase/Decrease this value for cross-browser compatibility */
+    overflow: visible;
+    overflow-y: scroll;
+    .menu > li > a {
+      align-items: center;
+    }
+  }
+}
+
+.show-or-hide {
+  text-align: right;
+  padding: 0.5rem;
+  i {
+    color: #dbdbdb;
+  }
+}
+#close-sidebar {
+  font-size: 14px;
+  text-align: center;
+}
+
+.reveal-for-medium {
+  #open-sidebar {
+    display: none;
+  }
+}
+
+.content-area {
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+  overflow-y: auto;
+  flex: 1 1 0;
+  padding: 20px;
+}
+
+@mixin shrunk-sidebar(){
+  #close-sidebar, .sidebar-text {
+    display: none;
+  }
+  #open-sidebar {
+    display: block;
+  }
+  #sidebar {
+    width: 50px;
+    .menu li {
+      a {
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        &:after {
+          right: 5px;
+        }
+      }
+    }
+    .fa.large {
+      width: auto;
+    }
+  }
+
+  .off-canvas-content {
+    margin-left: 50px;
+    width: calc(100%-80px);
+  }
+  .show-or-hide {
+    display: block;
+    text-align: center;
+  }
+  .menu.vertical > li > a {
+    justify-content: center;
+  }
+  .menu {
+    li {
+      &::after {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+
+      a {
+        padding: 0.75rem;
+        svg {
+          margin: 0;
+        }
+        span {
+          display: none;
+          opacity: 0;
+          transition: opacity 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}
+
+//mini sidebar on medium/tablet size
+@include breakpoint(medium only) {
+  .content.shrink-medium {
+    @include shrunk-sidebar()
+  }
+}
+
+@include breakpoint(large){
+  .content.shrink-large {
+    @include shrunk-sidebar()
+  }
+}
+.off-canvas-wrapper {
+  position: inherit;
 }

@@ -22,6 +22,13 @@ const app = new Vue({
 });
 
 
-var adminDropdown = new Foundation.DropdownMenu($("#admin-sidebar "), {dataClickOpen:true, dataAlignment:"right"});
-  
+var adminDropdown = new Foundation.AccordionMenu($("#admin-sidebar "));
+
+var adminOffCanvas = new Foundation.OffCanvas($(".admin .content"));
+$('[data-toggle="sidebar"]').on('click', function(e) {
+    e.preventDefault();
+    $(this).parents('.admin .content').toggleClass('shrink-medium').toggleClass('shrink-large');
+});
+
+var toolTips = new Foundation.OffCanvas($(".show-or-hide"));
   
