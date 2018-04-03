@@ -47,7 +47,7 @@
             
             <div class="small-12 grid-x">
             <div id="sidebar" class="cell medium-2 reveal-for-medium">
-                <ul class="vertical menu dropdown">
+                <ul id="admin-sidebar" class="vertical menu dropdown" data-dropdown-menu>
                     <li>
                         <a href="{{route('admin')}}" @if($active == 'dash') class="is-active" @endif>
                             <i class="fa large fa-home"></i><span class="app-dashboard-sidebar-text">&emsp;Dashboard</span>
@@ -63,7 +63,7 @@
                         <a href="{{route('admin.posts')}}" @if($active == 'posts') class="is-active" @endif>
                             <i class="large fa fa-file"></i><span class="app-dashboard-sidebar-text">&emsp;Posts</span>
                         </a>
-                        <ul class="vertical menu">
+                        <ul class="vertical menu nested">
                                 <li><a class="nav-link" href="{{ route('admin.posts.add')}}" @if($active == 'user-settings') class="is-active" @endif><i class="fa fa-plus-circle"></i>&emsp; New Post</a></li>
                                 <li><a class="nav-link" href="{{ route('admin.posts.categories')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-folder-open"></i>&emsp; Categories</a></li>
                                 <li><a class="nav-link" href="{{ route('admin.posts.categories')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-tags"></i>&emsp; Tags</a></li>

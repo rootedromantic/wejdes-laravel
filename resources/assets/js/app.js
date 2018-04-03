@@ -21,5 +21,7 @@ const app = new Vue({
     el: '#app'
 });
 
+
+var adminDropdown = new Foundation.DropdownMenu($("#admin-sidebar "), {dataClickOpen:true, dataAlignment:"right"});
   
   

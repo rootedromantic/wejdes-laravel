@@ -11858,52 +11858,39 @@ $app-dashboard-top-nav-height: 55px;
   padding: 1rem 2rem;
   border: 3px solid transparent;
   border-left: none;
-}
-
-.admin #sidebar li a + .menu {
-  display: none;
+  /* +.menu {
+        display: none;
+      }*/
 }
 
 .admin #sidebar li a.is-active {
   background: #8761d2;
   border: 3px solid #6939c7;
   border-left: none;
-}
-
-.admin #sidebar li a.is-active + .menu {
-  display: block;
-  background: #784dcd;
-  border: 3px solid #6939c7;
-  border-left: none;
-  border-top: none;
-  margin: 0;
-}
-
-.admin #sidebar li a.is-active + .menu li {
-  padding-left: 1rem;
+  /*+ .menu {
+          display: block;
+          background: darken($admin-top-nav-color, 10%);
+          border: 3px solid darken($admin-top-nav-color, 15%);
+          border-left: none;
+          border-top: none;
+          margin: 0;
+          li {
+            padding-left: 1rem;
+          }
+        }*/
 }
 
 .admin #sidebar li a:hover {
   color: #dbdbdb;
   background: #5e33b4;
-}
-
-.admin #sidebar li a:hover:not(.is-active) + .menu,
-.admin #sidebar li a:hover .menu li:hover {
-  background: #784dcd;
-  display: block;
-  position: absolute;
-  right: -1rem;
-  bottom: 0;
-}
-
-.admin #sidebar li:hover .menu,
-.admin #sidebar li:hover .menu li:hover {
-  background: #784dcd;
-  display: block;
-  position: absolute;
-  right: -1rem;
-  bottom: 0;
+  /*&:not(.is-active) +.menu, 
+        .menu li:hover {
+          background: darken($admin-top-nav-color, 10%);
+          display: block;
+          position: absolute;
+          right: -1rem;
+          bottom: 0;
+        } */
 }
 
 .admin .content-area {

@@ -15583,6 +15583,8 @@ var app = new Vue({
   el: '#app'
 });
 
+var adminDropdown = new Foundation.DropdownMenu($("#admin-sidebar "), { dataClickOpen: true, dataAlignment: "right" });
+
 /***/ }),
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
