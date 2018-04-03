@@ -32,15 +32,22 @@
                 <input class="app-dashboard-search" type="search" placeholder="Search">
             </div>
             <div class="cell medium-1 sign-out">
-                <a href="{{route('logout')}}">Sign Out</a>
+                    <a href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        Sign Out
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
             </div>
         </div>
         <div class="content grid-x grid-padding-x">
             
             <div class="small-12 grid-x">
             <div id="sidebar" class="cell medium-2 reveal-for-medium">
-
-                <ul class="vertical dropdown menu" data-dropdown-menu>
+                <ul class="vertical menu dropdown">
                     <li>
                         <a href="{{route('admin')}}" @if($active == 'dash') class="is-active" @endif>
                             <i class="fa large fa-home"></i><span class="app-dashboard-sidebar-text">&emsp;Dashboard</span>
@@ -50,16 +57,13 @@
                         <a href="{{route('admin.profile')}}" @if($active == 'user' || $active == 'user-settings'|| $active == 'user-social') class="is-active" @endif>
                             <i class="large fa fa-user-circle"></i><span class="app-dashboard-sidebar-text">&emsp;User</span>
                         </a>
-                        <ul class="vertical menu nested">
-                                <li><a class="nav-link" href="{{ route('admin.profile.settings')}}" @if($active == 'user-settings') class="is-active" @endif> User Settings</a></li>
-                                <li><a class="nav-link" href="{{ route('admin.profile.social')}}" @if($active == 'user-social') class="is-active" @endif> Social Services</a></li>
-                        </ul>
+                        
                     </li>
                     <li>
                         <a href="{{route('admin.posts')}}" @if($active == 'posts') class="is-active" @endif>
                             <i class="large fa fa-file"></i><span class="app-dashboard-sidebar-text">&emsp;Posts</span>
                         </a>
-                        <ul class="vertical menu nested">
+                        <ul class="vertical menu">
                                 <li><a class="nav-link" href="{{ route('admin.posts.add')}}" @if($active == 'user-settings') class="is-active" @endif><i class="fa fa-plus-circle"></i>&emsp; New Post</a></li>
                                 <li><a class="nav-link" href="{{ route('admin.posts.categories')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-folder-open"></i>&emsp; Categories</a></li>
                                 <li><a class="nav-link" href="{{ route('admin.posts.categories')}}" @if($active == 'user-social') class="is-active" @endif><i class="fa fa-tags"></i>&emsp; Tags</a></li>

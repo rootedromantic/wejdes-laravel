@@ -10,6 +10,7 @@ window._ = require('lodash');
 try {
     window.$ = window.jQuery = require('jquery');
    //Include foundation
+    require('foundation-sites');
     $(document).foundation();
 } catch (e) {}
 

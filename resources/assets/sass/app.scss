@@ -7,12 +7,12 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap'; */
-
+/*
 // Settings
-@import "vendor/zurb/foundation/scss/settings/settings";
-
+@import "vendor/zurb/foundation/scss/settings/_settings.scss";
+*/
 // Foundation
-@import "vendor/zurb/foundation/scss/foundation";
+@import "~foundation-sites/scss/foundation.scss";
 //FontAwesome
 @import "vendor/fortawesome/font-awesome/scss/font-awesome.scss";
 
@@ -325,26 +325,60 @@ $admin-top-nav-height: 55px;
     }
   }
 } 
+
 .admin #sidebar {
   background: lighten($admin-top-nav-color, 5%);
   height: 100%;
   min-height: 100vh;
   li {
+    position: relative;
     a {
       color: #fff;
       padding: 1rem 2rem;
       border: 3px solid transparent;
       border-left: none;
+      +.menu {
+        display: none;
+      }
       &.is-active {
         background: darken($admin-top-nav-color, 5%);
         border: 3px solid darken($admin-top-nav-color, 15%);
         border-left: none;
+        + .menu {
+          display: block;
+          background: darken($admin-top-nav-color, 10%);
+          border: 3px solid darken($admin-top-nav-color, 15%);
+          border-left: none;
+          border-top: none;
+          margin: 0;
+          li {
+            padding-left: 1rem;
+          }
+        }
       }
 
       &:hover {
         color: #dbdbdb;
-        background: darken($admin-top-nav-color, 10%);
+        background: darken($admin-top-nav-color, 20%);
+        &:not(.is-active) +.menu, 
+        .menu li:hover {
+          background: darken($admin-top-nav-color, 10%);
+          display: block;
+          position: absolute;
+          right: -1rem;
+          bottom: 0;
+        }
       }
+    }
+    &:hover {
+      .menu, 
+      .menu li:hover {
+          background: darken($admin-top-nav-color, 10%);
+          display: block;
+          position: absolute;
+          right: -1rem;
+          bottom: 0;
+        }
     }
   }
 }
