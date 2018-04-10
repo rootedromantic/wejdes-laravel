@@ -457,12 +457,17 @@ $offcanvas-transition-timing */
     width: 50px;
     .menu li {
       a {
+        position: relative;
         text-align: center;
         padding-left: 0;
         padding-right: 0;
         &:after {
           right: 5px;
         }
+
+      }
+      &.has-submenu-toggle a {
+        margin-right: 0;
       }
     }
     .fa.large {
@@ -518,4 +523,29 @@ $offcanvas-transition-timing */
 }
 .off-canvas-wrapper {
   position: inherit;
+}
+
+//admin accordion menu fixes
+#admin-sidebar .submenu-toggle {
+  display: none;
+}
+#admin-sidebar .submenu-toggle+.submenu-toggle {
+  display: inline-block;
+  &:after{
+    border-top-color: lighten($admin-top-nav-color, 25%);
+  }
+  &:focus, &:hover {
+    outline-color: lighten($admin-top-nav-color, 15%);
+    &:after{
+      border-top-color: lighten($admin-top-nav-color, 15%);
+    }
+  }
+}
+.shrink-medium #admin-sidebar .submenu-toggle {
+  top: 10px;
+  right: 0;
+}
+.shrink-large #admin-sidebar .submenu-toggle {
+  top: 10px;
+  right: -12px;
 }

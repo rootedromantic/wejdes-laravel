@@ -27,7 +27,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'],function(){
     Route::get('/posts/edit', 'AdminController@posts')->name('admin.posts.edit');
     Route::get('/posts/categories', 'AdminController@posts')->name('admin.posts.categories');
     //"admin.profile", edit what information is showed as your user
-    Route::get('/profile', 'AdminController@profile')->name('admin.profile');
+    Route::get('/profile', 'UsersController@profile')->name('admin.profile');
+    Route::post('/profile', 'UsersController@update');
     //"admin.profile.settings", change password, email, etc
     Route::get('/profile/settings', 'AdminController@profileSettings')->name('admin.profile.settings');
     Route::get('/profile/social', 'AdminController@profileSocial')->name('admin.profile.social');

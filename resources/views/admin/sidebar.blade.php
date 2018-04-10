@@ -1,6 +1,6 @@
 
 <ul id="admin-sidebar" class="vertical menu accordion-menu" data-accordion-menu data-submenu-toggle="true">
-    <li class="show-or-hide show">
+    <li class="show-or-hide j-show">
         <button id="close-sidebar" data-toggle="sidebar" class="sidebar-close show-for-medium" aria-label="Close menu" type="button">
             <i class="fa fa-eye-slash" title="Hide sidebar"></i>
         </button>

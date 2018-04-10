@@ -15580,18 +15580,30 @@ window.Vue = __webpack_require__(69);
 Vue.component('example-component', __webpack_require__(72));
 
 var app = new Vue({
-  el: '#app'
+    el: '#app'
 });
 
 var adminDropdown = new Foundation.AccordionMenu($("#admin-sidebar "));
 
 var adminOffCanvas = new Foundation.OffCanvas($(".admin .content"));
 $('[data-toggle="sidebar"]').on('click', function (e) {
-  e.preventDefault();
-  $(this).parents('.admin .content').toggleClass('shrink-medium').toggleClass('shrink-large');
+    e.preventDefault();
+    $(this).parents('.admin .content').toggleClass('shrink-medium').toggleClass('shrink-large');
+    if ($(this).parents('.admin .content').hasClass('shrink-medium')) {
+        $('.show-or-hide').addClass('j-show').removeClass('j-hide');
+    } else {
+        $('.show-or-hide').addClass('j-hide').removeClass('j-show');
+    }
+    $('.is-accordion-submenu.is-active').each(function () {
+        $(this).parents('#admin-sidebar').foundation('hideAll');
+    });
 });
-
-var toolTips = new Foundation.OffCanvas($(".show-or-hide"));
+$('.submenu-toggle').on('click', function (e) {
+    //e.preventDefault();
+    if ($('li.show-or-hide').hasClass('j-hide')) {
+        $(this).parents('.admin .content').toggleClass('shrink-medium').toggleClass('shrink-large');
+    }
+});
 
 /***/ }),
 /* 30 */

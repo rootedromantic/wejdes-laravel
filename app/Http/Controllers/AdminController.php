@@ -31,10 +31,6 @@ class AdminController extends Controller
         return view('admin.posts')->with(['active' => 'posts']);
     }
 
-    public function profile()
-    {
-        return view('admin.profile')->with(['active' => 'user']);
-    }
     public function profileSettings()
     {
         return view('admin.profileSettings')->with(['active' => 'user-settings']);

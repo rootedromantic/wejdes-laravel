@@ -7863,42 +7863,6 @@ a.button:focus {
   margin-left: 0;
 }
 
-.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a {
-  position: relative;
-}
-
-.accordion-menu .is-accordion-submenu-parent:not(.has-submenu-toggle) > a::after {
-  display: block;
-  width: 0;
-  height: 0;
-  border: inset 6px;
-  content: '';
-  border-bottom-width: 0;
-  border-top-style: solid;
-  border-color: #1779ba transparent transparent;
-  position: absolute;
-  top: 50%;
-  margin-top: -3px;
-  right: 1rem;
-}
-
-.accordion-menu.align-left .is-accordion-submenu-parent > a::after {
-  left: auto;
-  right: 1rem;
-}
-
-.accordion-menu.align-right .is-accordion-submenu-parent > a::after {
-  right: auto;
-  left: 1rem;
-}
-
-.accordion-menu .is-accordion-submenu-parent[aria-expanded='true'] > a::after {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  -webkit-transform-origin: 50% 50%;
-          transform-origin: 50% 50%;
-}
-
 .is-accordion-submenu-parent {
   position: relative;
 }
@@ -12002,6 +11966,7 @@ $offcanvas-transition-timing */
   }
 
   .content.shrink-medium #sidebar .menu li a {
+    position: relative;
     text-align: center;
     padding-left: 0;
     padding-right: 0;
@@ -12009,6 +11974,10 @@ $offcanvas-transition-timing */
 
   .content.shrink-medium #sidebar .menu li a:after {
     right: 5px;
+  }
+
+  .content.shrink-medium #sidebar .menu li.has-submenu-toggle a {
+    margin-right: 0;
   }
 
   .content.shrink-medium #sidebar .fa.large {
@@ -12069,6 +12038,7 @@ $offcanvas-transition-timing */
   }
 
   .content.shrink-large #sidebar .menu li a {
+    position: relative;
     text-align: center;
     padding-left: 0;
     padding-right: 0;
@@ -12076,6 +12046,10 @@ $offcanvas-transition-timing */
 
   .content.shrink-large #sidebar .menu li a:after {
     right: 5px;
+  }
+
+  .content.shrink-large #sidebar .menu li.has-submenu-toggle a {
+    margin-right: 0;
   }
 
   .content.shrink-large #sidebar .fa.large {
@@ -12123,5 +12097,37 @@ $offcanvas-transition-timing */
 
 .off-canvas-wrapper {
   position: inherit;
+}
+
+#admin-sidebar .submenu-toggle {
+  display: none;
+}
+
+#admin-sidebar .submenu-toggle + .submenu-toggle {
+  display: inline-block;
+}
+
+#admin-sidebar .submenu-toggle + .submenu-toggle:after {
+  border-top-color: #e2d8f4;
+}
+
+#admin-sidebar .submenu-toggle + .submenu-toggle:focus,
+#admin-sidebar .submenu-toggle + .submenu-toggle:hover {
+  outline-color: #c3b1e9;
+}
+
+#admin-sidebar .submenu-toggle + .submenu-toggle:focus:after,
+#admin-sidebar .submenu-toggle + .submenu-toggle:hover:after {
+  border-top-color: #c3b1e9;
+}
+
+.shrink-medium #admin-sidebar .submenu-toggle {
+  top: 10px;
+  right: 0;
+}
+
+.shrink-large #admin-sidebar .submenu-toggle {
+  top: 10px;
+  right: -12px;
 }
 

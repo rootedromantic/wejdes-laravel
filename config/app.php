@@ -160,6 +160,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Image Intervention services (jake added)
+        Intervention\Image\ImageServiceProvider::class,
+        //HTML Forms
+        Collective\Html\HtmlServiceProvider::class,
+        //ckeditor
+        Unisharp\Ckeditor\ServiceProvider::class,
     ],
 
     /*
@@ -209,6 +215,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //Adding Image Intervention plugin (jake added)
+        'Image' => Intervention\Image\Facades\Image::class,
+        //HTML Forms
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        
     ],
 
 ];

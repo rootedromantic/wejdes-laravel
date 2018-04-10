@@ -18,7 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('avatar')->default('default.jpg');
             $table->boolean('accepts_commisions')->nullable();
+            $table->mediumText('short_bio')->nullable();
+            $table->mediumText('bio')->nullable();
+            $table->string('url')->nullable();
+            $table->string('display_name')->nullable();
+            $table->string('social')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
