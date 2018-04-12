@@ -15605,6 +15605,8 @@ $('.submenu-toggle').on('click', function (e) {
     }
 });
 
+CKEDITOR.replace('article-ckeditor');
+
 /***/ }),
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {

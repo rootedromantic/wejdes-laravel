@@ -165,7 +165,7 @@ return [
         //HTML Forms
         Collective\Html\HtmlServiceProvider::class,
         //ckeditor
-        Unisharp\Ckeditor\ServiceProvider::class,
+        //Unisharp\Ckeditor\ServiceProvider::class,
     ],
 
     /*

@@ -36,7 +36,7 @@
             <fieldset class="fieldset">
                 <legend>Long Bio</legend>
                 <p class="help-text">This will be your 'About Me' page</p>
-                {{Form::textarea('body', '', ['id' => 'article-ckeditor'])}}
+                {{ Form::textarea('body', '', ['id' => 'article-ckeditor']) }}
             </fieldset>
         </div>
         {{ Form::submit('Save', ['class' => 'button']) }}

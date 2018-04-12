@@ -45,5 +45,6 @@ $('.submenu-toggle').on('click', function(e) {
         $(this).parents('.admin .content').toggleClass('shrink-medium').toggleClass('shrink-large');
     }
 });
-
+// TODO: copy files from vendor/ckeditor/ckeditor to a public space, so this will work
+CKEDITOR.replace( 'article-ckeditor' );
   
